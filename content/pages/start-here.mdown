@@ -1,0 +1,23 @@
+Date: 31 Dec 2010
+
+# Start here
+
+You're reading a short article in Nesta, a rather simple CMS. I've
+created these pages so that you can learn the basics of Nesta by playing
+around with some examples. You'll find the content of all the pages on
+this site in the [nesta-demo-content][] repository on GitHub.
+
+[nesta-demo-content]: http://github.com/gma/nesta-demo-content
+
+To get started with the demo:
+
+ * Have a look at the files inside the `content-demo` folder (from which
+   this site has been created), and use them to explore what Nesta can
+   do.
+ * Save your own content in a separate folder (which is called `content`
+   by default), and then tell Nesta to use it by changing the `content:`
+   setting in `config/config.yml`.
+ * If you're running the site locally with `mr-sparkle` you'll be able
+   to switch between this demo and your own site by updating
+   `config/config.yml` and reloading the page in your browser. There's
+   no need to restart Nesta between edits.

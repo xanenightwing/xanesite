@@ -1,0 +1,28 @@
+!!!
+%html{lang: "en"}
+  %head
+    %title= @title
+    %meta{charset: "utf-8"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+    - if @description
+      %meta{name: "description", content: @description}
+    - if @keywords
+      %meta{name: "keywords", content: @keywords}
+    %link{href: "#{url('/articles.xml')}", rel: "alternate", type: "application/atom+xml"}
+    %link{rel: "stylesheet", href: "/skyclad/css/bootstrap.min.css", media: "screen"}
+    %link{rel: "stylesheet", href: "/skyclad/css/skyclad.css"}
+    %script{src: "/skyclad/js/jquery.min.js"}
+    %script{src: "/skyclad/js/bootstrap.min.js"}
+    %script{src: "/skyclad/js/skyclad.js"}
+    /[if lt IE 9]
+      %script{src: "http://html5shim.googlecode.com/svn/trunk/html5.js"}
+    :css
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    = haml :analytics, layout: false
+  %body
+    = haml :header, layout: false
+    = yield
+    = haml :footer, layout: false

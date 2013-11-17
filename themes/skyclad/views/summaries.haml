@@ -1,0 +1,8 @@
+- unless pages.empty?
+  .container
+    - pages.each do |page|
+      .row
+        .col-md-4.text-right
+          %a{href: url(page.abspath)}= page.heading
+        .col-md-8
+          ~ (page.summary.nil? || page.summary.empty?) ? page.body(self) : page.summary

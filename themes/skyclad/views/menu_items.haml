@@ -1,0 +1,7 @@
+%ul.nav
+  - menu_items.each do |item|
+    - if item.respond_to?(:each)
+      = haml :menu_items, layout: false, locals: {menu_items: item}
+    - elsif item.respond_to?(:abspath)
+      %li
+        %a{href: url(item.abspath)}= item.heading or item.title

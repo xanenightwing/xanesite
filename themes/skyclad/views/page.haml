@@ -1,0 +1,25 @@
+.container
+  .row.row-offcanvas.row-offcanvas-right
+    .col-xs-12.col-sm-9#content
+      %p.pull-right.visible-xs
+        %button.btn.btn-primary.btn-xs{type: "button", data: {toggle: "offcanvas"}} Show Menu
+      %ol.breadcrumb
+        - breadcrumb_ancestors.each do |page|
+          - if page == @page
+            %li.active= breadcrumb_label(page)
+          - else
+            %li
+              %a{href: url(page.abspath)}= breadcrumb_label(page)
+      %article{role: "main"}
+        ~ @page.to_html(self)
+        %section.pages
+          = article_summaries(@page.pages)
+        - unless @page.articles.empty?
+          %section.articles
+            %header
+              %h1= articles_heading
+            = article_summaries(@page.articles)
+        = haml :page_meta, layout: false, locals: { page: @page }
+      = haml :comments, layout: false
+    .col-xs-6.col-sm-3.sidebar-offcanvas#sidebar{role: "navigation"}
+      = haml :sidebar, layout: false
